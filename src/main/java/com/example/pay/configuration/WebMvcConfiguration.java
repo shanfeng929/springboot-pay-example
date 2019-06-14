@@ -1,6 +1,7 @@
 package com.example.pay.configuration;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
@@ -15,10 +16,18 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
  */
 @Configuration
 public class WebMvcConfiguration extends WebMvcConfigurationSupport {
-    @Override
-    protected void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/gotoWapPage").setViewName("gotoWapPay");
-        registry.addViewController("/gotoPagePage").setViewName("gotoPagePay");
-        super.addViewControllers(registry);
-    }
+	@Override
+	protected void addViewControllers(ViewControllerRegistry registry) {
+		registry.addViewController("/gotoWapPage").setViewName("gotoWapPay");
+		registry.addViewController("/gotoPagePage").setViewName("gotoPagePay");
+		registry.addViewController("/gotoH5Page").setViewName("gotoH5Page");
+		registry.addViewController("/h5PaySuccess").setViewName("h5PaySuccess");
+		super.addViewControllers(registry);
+	}
+
+	@Override
+	protected void addResourceHandlers(ResourceHandlerRegistry registry) {
+		registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
+		super.addResourceHandlers(registry);
+	}
 }

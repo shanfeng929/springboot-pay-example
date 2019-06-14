@@ -1,22 +1,25 @@
 package com.example.pay.controller;
 
+import java.awt.image.BufferedImage;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.imageio.ImageIO;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.example.pay.configuration.WXPayClient;
 import com.example.pay.util.PayUtil;
 import com.github.wxpay.sdk.WXPay;
 import com.github.wxpay.sdk.WXPayConstants;
 import com.github.wxpay.sdk.WXPayUtil;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-import javax.imageio.ImageIO;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.awt.image.BufferedImage;
-import java.util.HashMap;
-import java.util.Map;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 微信支付-扫码支付.
@@ -43,7 +46,7 @@ public class WXPayPrecreateController {
      *
      * <a href="https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=9_1">扫码支付API</a>
      */
-    @PostMapping("/order")
+    @GetMapping("/order")
     public void precreate(HttpServletRequest request, HttpServletResponse response) throws Exception {
         Map<String, String> reqData = new HashMap<>();
         reqData.put("out_trade_no", String.valueOf(System.nanoTime()));
