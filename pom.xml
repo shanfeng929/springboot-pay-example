@@ -46,14 +46,14 @@
 			<artifactId>alipay-sdk-java</artifactId>
 			<version>20170725114550</version>
 			<scope>system</scope>
-			<systemPath>${basedir}/lib/alipay-sdk-java-3.3.0.jar</systemPath>
+			<systemPath>${basedir}/src/main/lib/alipay-sdk-java-3.3.0.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>com.alipay</groupId>
 			<artifactId>alipay-trade-sdk</artifactId>
 			<version>20161215</version>
 			<scope>system</scope>
-			<systemPath>${basedir}/lib/alipay-trade-sdk-20161215.jar</systemPath>
+			<systemPath>${basedir}/src/main/lib/alipay-trade-sdk-20161215.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
